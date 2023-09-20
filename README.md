@@ -10,31 +10,30 @@ Este desafio envolve a criação de um sistema bancário completo, abrangendo ta
 
 ## Visão Geral
 
-Neste desafio, foi criado uma interface de usuário amigável que permita aos clientes do banco acessar suas contas, visualizar saldos, fazer saques, depositar fundos e efetuar transferências para outras contas. Além disso, o backend deve ser capaz de processar essas operações com segurança, garantindo que as transações sejam registradas corretamente e que os saldos das contas sejam atualizados adequadamente.
+Neste desafio, foi criado uma interface de usuário amigável que permita aos clientes do banco acessar suas contas tanto por computadores/notebooks ou celulares, visualizar saldos, fazer saques, depositar fundos e efetuar transferências para outras contas. Além disso, o backend deve ser capaz de processar essas operações com segurança, garantindo que as transações sejam registradas corretamente e que os saldos das contas sejam atualizados adequadamente.
+
+## Dashboard
+
+![image](https://github.com/ryanrobert1227/desafio-fullstack-modulo-04-ddst12/assets/99685386/8f4705c5-8dc0-4674-9936-3490be445066)
 
 ## Tecnologias Utilizadas
 
 #### Frameworks
 
-- React
 - Express
-- Prisma
 
 #### Linguagens
 
 - Typescript (Front-end);
 - Javascript (Back-end);
-- PostgresSQL;
+- SQL;
 
 #### Bibliotecas/Dependecias
 
-- react-hook-form;
-- react-input-mask;
-- react-modal;
-- react-router-dom;
-- react-toastify;
-- styled-component;
-- secure-password;
+- React
+- Prisma
+- Styled component;
+- Secure password;
 
 ## Como rodar?
 
