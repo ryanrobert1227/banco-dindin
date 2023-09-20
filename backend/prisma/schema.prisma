@@ -1,0 +1,95 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Bank {
+  id      String @id @default(uuid())
+  nome    String
+  numero  String
+  agencia String
+  senha   String
+
+  @@map("bank")
+}
+
+model Account {
+  id             String         @id      @default(uuid())
+  accountNumber  Int            @unique  @default(autoincrement())
+  Balance        Decimal
+  user_key       String
+  user           User           @relation(fields: [user_key], references: [id])
+
+  Deposit  Deposit[]
+  Withdrow Withdrow[]
+  Transfer Transfer[]
+
+  @@map("accounts")
+}
+
+model User {
+  id          String        @id @default(uuid())
+  name        String
+  cpf         String        @unique
+  bornDate    String
+  phoneNumber String
+  email       String        @unique
+  password    String
+
+  account  Account[]
+  transfer Transfer[]
+
+
+  @@map("users")
+}
+
+model Deposit {
+  id            String      @id @default(uuid())
+  account_key   String
+  account       Account     @relation(fields: [account_key], references: [id])
+  date          DateTime    @default(now())
+  day           String
+  value         Decimal
+  category      String
+  discription   String
+  type          String
+
+  @@map("deposits")
+}
+
+model Withdrow {
+  id             String       @id @default(uuid())
+  account_key    String
+  account        Account      @relation(fields: [account_key], references: [id])
+  date           DateTime     @default(now())
+  day            String
+  value          Decimal
+  category      String
+  discription    String
+  type           String
+
+  @@map("withdrows")
+}
+
+model Transfer {
+  id                 String       @id @default(uuid())
+  account_origin_key String
+  user_recipient_key String
+  account            Account      @relation(fields: [account_origin_key], references: [id])
+  user               User         @relation(fields: [user_recipient_key], references: [id])
+  date               DateTime     @default(now())
+  day                String
+  value              Decimal
+  category          String
+  discription        String
+  type               String
+
+  @@map("transfers")
+}
